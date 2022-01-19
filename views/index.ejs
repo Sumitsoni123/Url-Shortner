@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>Url Shortner</title>
+</head>
+
+<body>
+    <div class="container">
+        <h1>URL Hashing Application</h1>
+        <form action="/shortUrls" method="POST" class="my-5 form-inline">
+            <input class="form-control col mr-2" required placeholder="enter url" type="url" name="fullUrl"
+                id="fullUrl">
+            <button class="btn btn-success" type="submit">Short</button>
+        </form>
+
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Original Url</th>
+                    <th>Short Url</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <!-- below is  the example of Extended javascript in html page -->
+                <% shortUrls.forEach(shortUrl=> { %>    
+                    <tr>
+                        <td><a target="_blank" href="<%= shortUrl.full %>">
+                                <%= shortUrl.full %>
+                            </a></td>
+                        <td><a target="_blank" href="<%= shortUrl.short %>">
+                                <%= shortUrl.short %>
+                            </a></td>
+                    </tr>
+                    <% }) %>
+            </tbody>
+        </table>
+    </div>
+</body>
+
+</html>
